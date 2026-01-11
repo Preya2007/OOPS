@@ -4,7 +4,6 @@ public class Practical_2{
 	public static void main(String[] args){
 
 	Scanner sc = new Scanner(System.in);
-	
 	System.out.println("Enter the value of a:");
 	double a = sc.nextDouble();
 	System.out.println("Enter the value of b:");
@@ -23,7 +22,6 @@ public class Practical_2{
 	double Dy=a*f-c*e;
 
 	if(D==0){
-		
 		System.out.print("No unique solution exists .");
 	}else{
 		double x =Dx / D;
@@ -31,12 +29,8 @@ public class Practical_2{
 		
 		System.out.printf("value of x:%.2f",x);
 		System.out.printf("value of y:%.2f",y);
-	}
-	
-				
+	}			
 	sc.close();
 	
 }
-
-
 }
