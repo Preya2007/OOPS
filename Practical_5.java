@@ -2,8 +2,6 @@ import java.util.Scanner;
 
 public class Practical_5{
 	public static void main(String[] args){
-		System.out.println("Enrollment No. 240390107032");	
-
 		Scanner sc = new Scanner(System.in);
 		int amount =787;
 
@@ -22,3 +20,4 @@ public class Practical_5{
 		sc.close();
 	}
 }
+
