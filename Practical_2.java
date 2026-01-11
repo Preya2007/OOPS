@@ -5,8 +5,6 @@ public class Practical_2{
 
 	Scanner sc = new Scanner(System.in);
 	
-	System.out.println("Anrollment No. 240390107032");
-	
 	System.out.println("Enter the value of a:");
 	double a = sc.nextDouble();
 	System.out.println("Enter the value of b:");
@@ -39,5 +37,6 @@ public class Practical_2{
 	sc.close();
 	
 }
+
 
 }
