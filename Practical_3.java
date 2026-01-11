@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Practical_3{
 	
 	public static void main(String[] args){
-		System.out.println("Anrollment No. 240390107032");
+
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Character:");
 		char ch = sc.next().charAt(0);
@@ -16,4 +16,5 @@ public class Practical_3{
 
 		sc.close();
 	}
+
 }
