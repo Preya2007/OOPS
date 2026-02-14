@@ -24,7 +24,6 @@ class Point {
 
     public static void main(String[] args) {
 
-    System.out.println("Enrollment No. 240390107032");
         Point p1 = new Point();
         System.out.println("Default Constructor:");
         p1.display();
@@ -38,3 +37,4 @@ class Point {
         p3.display();
     }
 }
+
