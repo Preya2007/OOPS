@@ -13,7 +13,6 @@ class Rectangle {
 
     public static void main(String[] args) {
 
-        System.out.println("Enrollment No. 240390107032");
 
         Rectangle r1 = new Rectangle();
         r1.width = 4;
@@ -46,4 +45,5 @@ class Rectangle {
         }
     }
 }
+
 
