@@ -25,8 +25,6 @@ class Time {
 
     public static void main(String[] args) {
 
-        System.out.println("Enrollment No. 240390107032");
-
         Time t1 = new Time();
         Time t2 = new Time();
         Time result = new Time();
@@ -46,3 +44,4 @@ class Time {
         result.displayTime();
     }
 }
+
