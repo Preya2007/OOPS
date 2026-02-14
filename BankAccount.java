@@ -21,8 +21,6 @@ class BankAccount {
 
     public static void main(String[] args) {
 
-        System.out.println("Enrollment No. 240390107032");
-
         Scanner sc = new Scanner(System.in);
 
         BankAccount acc[] = new BankAccount[5];
@@ -68,3 +66,4 @@ class BankAccount {
         sc.close();
     }
 }
+
