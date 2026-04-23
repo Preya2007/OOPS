@@ -1,12 +1,12 @@
 class University {
 
-    // Static data member
-    static int totalStudents;
-
     // Static variable
     static String universityName;
 
-    // Static block (executes only once when class is loaded)
+    // Static data member to count students
+    static int totalStudents;
+
+    // Static block (executed once when class is loaded)
     static {
         universityName = "Global Tech University";
         totalStudents = 0;
@@ -14,16 +14,15 @@ class University {
         System.out.println("University Name Initialized: " + universityName);
     }
 
-    // Instance block (executes every time an object is created, before constructor)
+    // Instance block (executed every time an object is created, before constructor)
     {
-        System.out.println("Instance Block Executed");
+        System.out.println("Instance Block Executed - A student object is being created");
     }
 
     // Constructor
     University() {
         totalStudents++;
-        System.out.println("Constructor Executed");
-        System.out.println("Student Created. Total Students: " + totalStudents);
+        System.out.println("Constructor Executed - Student Created");
     }
 
     // Static method
@@ -31,18 +30,21 @@ class University {
         return totalStudents;
     }
 
-    // Main method to demonstrate execution order
     public static void main(String[] args) {
 
         System.out.println("Main Method Started");
 
-        University s1 = new University();
+        // Creating first object
+        University u1 = new University();
+
         System.out.println();
 
-        University s2 = new University();
+        // Creating second object
+        University u2 = new University();
+
         System.out.println();
 
-        System.out.println("Total Students (using static method): " 
-                           + University.getTotalStudents());
+        // Access static method
+        System.out.println("Total Students: " + University.getTotalStudents());
     }
 }
