@@ -1,28 +1,48 @@
+interface Exam {
+    boolean isPassed(int mark);
+}
+
 interface Classify {
     String getDivision(double average);
 }
 
-class Result implements Classify {
+class Result implements Exam, Classify {
 
-    // Implementing the method from interface
+    // Implementation of Exam interface
+    public boolean isPassed(int mark) {
+        return mark >= 40;
+    }
+
+    // Implementation of Classify interface
     public String getDivision(double average) {
 
         if (average >= 60) {
             return "First Division";
+        } else if (average >= 50) {
+            return "Second Division";
+        } else if (average >= 40) {
+            return "Third Division";
         } else {
-            return "No Division";
+            return "Fail";
         }
     }
 
     public static void main(String[] args) {
 
-        Result r1 = new Result();
+        Result r = new Result();
 
-        double avg = 65.5;
+        int marks = 55;
+        double average = 62.5;
 
-        String division = r1.getDivision(avg);
+        // Check pass/fail
+        boolean result = r.isPassed(marks);
 
-        System.out.println("Average Marks: " + avg);
+        // Get division
+        String division = r.getDivision(average);
+
+        System.out.println("Marks: " + marks);
+        System.out.println("Average: " + average);
+        System.out.println("Passed: " + result);
         System.out.println("Division: " + division);
     }
 }
