@@ -1,51 +1,49 @@
-class TablePrinter {
+class SumThread extends Thread {
+    private int start, end;
+    private long sum = 0;
 
-    synchronized void printTable(int num) {
-        for (int i = 1; i <= 10; i++) {
-            System.out.println(num + " x " + i + " = " + (num * i));
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-                System.out.println(e);
-            }
+    // Constructor
+    public SumThread(int start, int end) {
+        this.start = start;
+        this.end = end;
+    }
+
+    // Run method (executed when thread starts)
+    public void run() {
+        for (int i = start; i <= end; i++) {
+            sum += i;
         }
-        System.out.println();
-    }
-}
-
-class Thread1 extends Thread {
-    TablePrinter tp;
-
-    Thread1(TablePrinter tp) {
-        this.tp = tp;
+        System.out.println("Sum from " + start + " to " + end + " = " + sum);
     }
 
-    public void run() {
-        tp.printTable(5);
-    }
-}
-
-class Thread2 extends Thread {
-    TablePrinter tp;
-
-    Thread2(TablePrinter tp) {
-        this.tp = tp;
-    }
-
-    public void run() {
-        tp.printTable(7);
+    // Getter method to return sum
+    public long getSum() {
+        return sum;
     }
 }
 
 public class Main {
     public static void main(String[] args) {
-	System.out.println("Enrollment No. 240390107032");
-        TablePrinter tp = new TablePrinter();
+        // Create two threads
+        SumThread t1 = new SumThread(1, 1000);
+        SumThread t2 = new SumThread(1001, 2000);
 
-        Thread1 t1 = new Thread1(tp);
-        Thread2 t2 = new Thread2(tp);
-
+        // Start threads (parallel execution)
         t1.start();
         t2.start();
+
+        try {
+            // Wait for both threads to finish
+            t1.join();
+            t2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Get results from both threads
+        long totalSum = t1.getSum() + t2.getSum();
+
+        // Print final result
+        System.out.println("Final Total Sum = " + totalSum);
     }
 }
