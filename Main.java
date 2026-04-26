@@ -1,49 +1,35 @@
-class SumThread extends Thread {
-    private int start, end;
-    private long sum = 0;
+import java.util.*;
 
-    // Constructor
-    public SumThread(int start, int end) {
-        this.start = start;
-        this.end = end;
+class Box<T> {
+    private ArrayList<T> items = new ArrayList<>();
+
+    public void addItem(T item) {
+        items.add(item);
     }
 
-    // Run method (executed when thread starts)
-    public void run() {
-        for (int i = start; i <= end; i++) {
-            sum += i;
+    public void displayItems() {
+        for (T item : items) {
+            System.out.println(item);
         }
-        System.out.println("Sum from " + start + " to " + end + " = " + sum);
-    }
-
-    // Getter method to return sum
-    public long getSum() {
-        return sum;
     }
 }
 
 public class Main {
     public static void main(String[] args) {
-        // Create two threads
-        SumThread t1 = new SumThread(1, 1000);
-        SumThread t2 = new SumThread(1001, 2000);
+        Box<String> nameBox = new Box<>();
+        nameBox.addItem("Alice");
+        nameBox.addItem("Bob");
+        nameBox.addItem("Charlie");
 
-        // Start threads (parallel execution)
-        t1.start();
-        t2.start();
+        Box<Integer> rollBox = new Box<>();
+        rollBox.addItem(101);
+        rollBox.addItem(102);
+        rollBox.addItem(103);
 
-        try {
-            // Wait for both threads to finish
-            t1.join();
-            t2.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        System.out.println("Names:");
+        nameBox.displayItems();
 
-        // Get results from both threads
-        long totalSum = t1.getSum() + t2.getSum();
-
-        // Print final result
-        System.out.println("Final Total Sum = " + totalSum);
+        System.out.println("\nRoll Numbers:");
+        rollBox.displayItems();
     }
 }
